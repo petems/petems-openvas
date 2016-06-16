@@ -1,0 +1,13 @@
+fixtures:
+  repositories:
+    stdlib:
+      repo: "git://github.com/puppetlabs/puppetlabs-stdlib.git"
+      ref: 4.11.0
+    atomic:
+      repo: "git://github.com/andyshinn/puppet-atomic"
+      ref: 0.2.0
+    apt:
+      repo: "git://github.com/puppetlabs/puppetlabs-apt.git"
+      ref: 2.2.2
+  symlinks:
+    openvas: "#{source_dir}"
