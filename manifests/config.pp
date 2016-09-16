@@ -21,4 +21,13 @@ class openvas::config {
     path   => '/etc/sysconfig/openvas-scanner',
   }
 
+  file_line { 'Disable Vulnerable Ciphers':
+    ensure => present,
+    line   => 'GSA_ADDRESS=0.0.0.0',
+    match  => '^GSA_ADDRESS=.*',
+    path   => '/etc/sysconfig/gsad',
+  }
+
+
+
 }
