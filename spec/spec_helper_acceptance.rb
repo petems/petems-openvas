@@ -17,6 +17,7 @@ RSpec.configure do |c|
     hosts.each do |host|
       on host, puppet('module', 'install', 'puppetlabs-stdlib -v 4.11.0'), { :acceptable_exit_codes => [0] }
       on host, puppet('module', 'install', 'andyshinn-atomic -v 0.2.0'), { :acceptable_exit_codes => [0] }
+      on host, puppet('module', 'install', 'arioch-redis -v 1.2.3'), { :acceptable_exit_codes => [0] }
     end
   end
 end
