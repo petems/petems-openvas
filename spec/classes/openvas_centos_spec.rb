@@ -6,6 +6,7 @@ describe 'openvas' do
       :osfamily                  => 'RedHat',
       :operatingsystemmajrelease => '7',
       :operatingsystem           => 'CentOS',
+      :architecture              => 'x86_64',
     }}
 
     context 'repo disabled' do
@@ -22,7 +23,7 @@ describe 'openvas' do
         :enabled  => '1',
         :gpgcheck => '1',
         :gpgkey   => ["https://www.atomicorp.com/RPM-GPG-KEY.art.txt https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt"],
-        :mirrorlist  => "http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-7-"
+        :mirrorlist  => "http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-7-x86_64"
       )}
     end
 
