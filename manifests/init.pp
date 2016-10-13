@@ -25,6 +25,7 @@
 # @param service_name [String] Name of the openvas service to manage
 #
 class openvas (
+  $configure_redis  = $::openvas::params::configure_redis,
   $manage_package   = $::openvas::params::manage_package,
   $manage_repo      = $::openvas::params::manage_repo,
   $manage_service   = $::openvas::params::manage_service,
