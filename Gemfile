@@ -18,19 +18,33 @@ group :test do
   gem 'puppet-syntax'
   gem 'puppetlabs_spec_helper'
   gem 'simplecov'
+  gem 'simplecov-console'
   gem 'metadata-json-lint'
-  gem 'rspec-puppet-facts'
+  gem 'safe_yaml', '~> 1.0.4'
 end
 
 group :development do
+  gem 'travis'
+  gem 'travis-lint'
   gem 'puppet-blacksmith'
   gem 'guard-rake'
-  gem 'listen', '<= 3.0.6'
+  gem 'listen', '<= 3.0.6', :require => false
+  gem 'rubocop', '0.41.2' if RUBY_VERSION < '2.0.0'
+  gem 'rubocop' if RUBY_VERSION >= '2.0.0'
+  gem 'rubocop-rspec', '~> 1.6' if RUBY_VERSION >= '2.3.0'
+  gem 'json_pure', '<= 2.0.1' if RUBY_VERSION < '2.0.0'
 end
 
 group :system_tests do
-  gem 'beaker', '2.43.0'
-  gem 'beaker-rspec', '5.3.0'
-  gem "beaker-puppet_install_helper", :require => false
-  gem 'vagrant-wrapper'
+  gem "beaker",
+    :git => 'https://github.com/puppetlabs/beaker',
+    :ref => '3d21e843434a2e65152bd352c653511ddea0ce71',
+    :require => false
+  gem "beaker-rspec",
+    :git => 'https://github.com/puppetlabs/beaker-rspec.git',
+    :ref => 'a617f7bbc3e6ebb6ce49df32749d4ce93cef737d',
+    :require => false
+  gem 'serverspec'
+  gem 'specinfra'
 end
+
