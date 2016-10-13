@@ -16,7 +16,7 @@ class openvas::initial_setup {
   ~>
   Service[$::openvas::service_name_manager]
 
-  class { 'redis':
+  class { '::redis':
     unixsocket     => '/tmp/redis.sock',
     unixsocketperm => '700',
   }
