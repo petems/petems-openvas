@@ -34,15 +34,18 @@ group :development do
 end
 
 group :system_tests do
-  if beaker_version = ENV['BEAKER_VERSION']
-    gem 'beaker', *location_for(beaker_version)
-  end
-  if beaker_rspec_version = ENV['BEAKER_RSPEC_VERSION']
-    gem 'beaker-rspec', *location_for(beaker_rspec_version)
-  else
-    gem 'beaker-rspec',  :require => false
-  end
-  gem 'beaker-puppet_install_helper',  :require => false
+  gem "beaker",
+    :git => 'https://github.com/puppetlabs/beaker',
+    :tag => '2.41.0',
+    :require => false
+  gem "beaker-rspec",
+    :git => 'https://github.com/puppetlabs/beaker-rspec.git',
+    :ref => 'a617f7bbc3e6ebb6ce49df32749d4ce93cef737d',
+    :require => false
+  gem "beaker-puppet_install_helper", :require => false
+  gem 'signet', git: "https://github.com/google/signet.git"
+  gem 'serverspec'
+  gem 'specinfra'
 end
 
 
