@@ -46,18 +46,25 @@ include '::openvas'
 
 You'll more than likely want to provide the appropriate values for your setup.
 
-However, the service won't start until a number of preperation steps have been done. These are covered by the `openvas-setup` script. However, this can take a long time depending on your network speeds, so I've left it out of the module for now.
+### Starting the service
 
-If you want to do that, something like this is what you need:
+However, the service won't start until a number of preperation steps have been done. These are covered by the `openvas-setup` script.
+
+However, this can take a long time depending on your network speeds, so I've left it out of the module for now.
+
+For the initial setup, you'll probably need to disable managing the service:
 
 ```puppet
 class { '::openvas':
-  initial_setup  => false,
   manage_service => false,
 }
 ```
 
-This will not manage the service inside of Puppet, as it will fail to start until the preperation steps have been completed. After you've got OpenVas working, you can manage the service with Puppet easily.
+After you've got OpenVas working, you can manage the service with Puppet easily.
+
+Eventually, the steps in the setup script will be run by Puppet.
+
+## Repository management
 
 To opt out of repo management altogether, you'd specify it like so:
 ```puppet
@@ -69,6 +76,7 @@ class { '::openvas':
 ## Limitations
 
 * Configuration is fairly surface level now
+* Only tested on CentOS
 * Ubuntu, Debian, Fedora and others aren't supported yet
 
 ## Development
