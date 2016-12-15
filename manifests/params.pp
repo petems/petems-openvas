@@ -23,5 +23,6 @@ class openvas::params {
   $service_ensure   = 'running'
   $service_name_manager = 'openvas-manager'
   $service_name_scanner = 'openvas-scanner'
+  $configure_redis  = true
 
 }

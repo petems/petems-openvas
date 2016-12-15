@@ -9,5 +9,8 @@ fixtures:
     apt:
       repo: "git://github.com/puppetlabs/puppetlabs-apt.git"
       ref: 2.2.2
+    redis:
+      repo: "git://github.com/arioch/puppet-redis"
+      ref: 1.2.3
   symlinks:
     openvas: "#{source_dir}"

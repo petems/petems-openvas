@@ -21,4 +21,11 @@ class openvas::config {
     path   => '/etc/sysconfig/openvas-scanner',
   }
 
+  if $::openvas::configure_redis {
+    class { '::redis':
+      unixsocket     => '/tmp/redis.sock',
+      unixsocketperm => '700',
+    }
+  }
+
 }
